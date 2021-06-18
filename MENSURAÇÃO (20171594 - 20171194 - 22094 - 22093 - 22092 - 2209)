@@ -1,0 +1,33 @@
+select
+sum(case when v."ScriptPoint" = '20171594' then 1 else 0 end) TotalChamadas,
+sum(case when(case when v."ScriptPoint" = '20171594' then 1 else 0 end) = 1 and (case when v."Transferidas" = 1 then 1 else 0 end) = 1 then 1 else 0 end)   Atendente_20171594,
+sum(case when(case when v."ScriptPoint" = '20171594' then 1 else 0 end) = 1 and (case when v."RetidasVDA" = 1 then 1 else 0 end) = 1 then 1 else 0 end)   Retidas_20171594,
+sum(case when(case when v."ScriptPoint" = '20171594' then 1 else 0 end) = 1 and (case when  r."Rechamada24hVDA" = 1 then 1 else 0 end) = 1 then 1 else 0 end)   Rechamada_20171594,
+sum(case when v."ScriptPoint" = '20171194' then 1 else 0 end) TotalChamadas,
+sum(case when(case when v."ScriptPoint" = '20171194' then 1 else 0 end) = 1 and (case when v."Transferidas" = 1 then 1 else 0 end) = 1 then 1 else 0 end)   Atendente_20171194,
+sum(case when(case when v."ScriptPoint" = '20171594' then 1 else 0 end) = 1 and (case when v."RetidasVDA" = 1 then 1 else 0 end) = 1 then 1 else 0 end)   Retidas_20171194,
+sum(case when(case when v."ScriptPoint" = '20171194' then 1 else 0 end) = 1 and (case when  r."Rechamada24hVDA" = 1 then 1 else 0 end) = 1 then 1 else 0 end)   Rechamada_20171194,
+sum(case when v."ScriptPoint" = '22094' then 1 else 0 end) TotalChamadas,
+sum(case when(case when v."ScriptPoint" = '22094' then 1 else 0 end) = 1 and (case when v."Transferidas" = 1 then 1 else 0 end) = 1 then 1 else 0 end)   Atendente_22094,
+sum(case when(case when v."ScriptPoint" = '22094' then 1 else 0 end) = 1 and (case when v."RetidasVDA" = 1 then 1 else 0 end) = 1 then 1 else 0 end)   Retidas_22094,
+sum(case when(case when v."ScriptPoint" = '22094' then 1 else 0 end) = 1 and (case when  r."Rechamada24hVDA" = 1 then 1 else 0 end) = 1 then 1 else 0 end)   Rechamada_22094,
+sum(case when v."ScriptPoint" = '22093' then 1 else 0 end) TotalChamadas,
+sum(case when(case when v."ScriptPoint" = '22093' then 1 else 0 end) = 1 and (case when v."Transferidas" = 1 then 1 else 0 end) = 1 then 1 else 0 end)   Atendente_22093,
+sum(case when(case when v."ScriptPoint" = '22093' then 1 else 0 end) = 1 and (case when v."RetidasVDA" = 1 then 1 else 0 end) = 1 then 1 else 0 end)   Retidas_22093,
+sum(case when(case when v."ScriptPoint" = '22093' then 1 else 0 end) = 1 and (case when  r."Rechamada24hVDA" = 1 then 1 else 0 end) = 1 then 1 else 0 end)   Rechamada_22093,
+sum(case when v."ScriptPoint" = '22092' then 1 else 0 end) TotalChamadas,
+sum(case when(case when v."ScriptPoint" = '22092' then 1 else 0 end) = 1 and (case when v."Transferidas" = 1 then 1 else 0 end) = 1 then 1 else 0 end)   Atendente_22092,
+sum(case when(case when v."ScriptPoint" = '22092' then 1 else 0 end) = 1 and (case when v."RetidasVDA" = 1 then 1 else 0 end) = 1 then 1 else 0 end)   Retidas_22092,
+sum(case when(case when v."ScriptPoint" = '22092' then 1 else 0 end) = 1 and (case when  r."Rechamada24hVDA" = 1 then 1 else 0 end) = 1 then 1 else 0 end)   Rechamada_22092,
+sum(case when v."ScriptPoint" = '2209)' then 1 else 0 end) TotalChamadas,
+sum(case when(case when v."ScriptPoint" = '2209)' then 1 else 0 end) = 1 and (case when v."Transferidas" = 1 then 1 else 0 end) = 1 then 1 else 0 end)   Atendente_2209,
+sum(case when(case when v."ScriptPoint" = '2209)' then 1 else 0 end) = 1 and (case when v."RetidasVDA" = 1 then 1 else 0 end) = 1 then 1 else 0 end)   Retidas_2209,
+sum(case when(case when v."ScriptPoint" = '2209)' then 1 else 0 end) = 1 and (case when  r."Rechamada24hVDA" = 1 then 1 else 0 end) = 1 then 1 else 0 end)   Rechamada_2209
+from powerbi_ds.vda_net_final v 
+left join powerbi_ds.Rechamada_Pos_Retencao r 
+on v."conversationID" = r."conversationid"
+where date(v.calldate) between '2021-05-10' and '2021-06-10'
+
+--select * from powerbi_ds.vda_net_final vnf limit 10
+
+--select "ScriptPoint" scriptPOint from powerbi_ds.vda_net_final vnf where "ScriptPoint" = '20171594' and date(calldate) between '2021-04-09' and '2021-05-09'
